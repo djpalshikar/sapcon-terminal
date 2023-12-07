@@ -57,7 +57,7 @@ set(SOURCE_FILES
   quary_box.cpp
   serialcomm.cpp
 )
-
+include_directory(${CMAKE_CURRENT_SOURCE_DIR})
 # `find_package` directive tells CMake to search for given package name and
 # applies appropriate configurations for that package.
 # The informations needed by CMake to properly configure our `Makefile` for this
