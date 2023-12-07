@@ -1,6 +1,6 @@
 
   # After registering a name on build.snapcraft.io, commit an uncommented line:
-   name: sapcon-terminal
+  name: sapcon-terminal
   version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
   summary: Serial Port Terminal with easy presets # 79 char long summary
   description: |
