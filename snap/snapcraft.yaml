@@ -15,4 +15,18 @@
     my-part:
       # See 'snapcraft plugins'
       plugin: cmake
-  
+      cmake-parameters:
+      source: https://github.com/djpalshikar/sapcon-terminal
+  apps:
+    sapcon-terminal:
+      extensions:
+        - kde-neon
+      command: sapcon-terminal
+  architectures:
+  - build-on: [amd64]
+    build-for: [amd64]
+  - build-on: [arm64]
+    build-for: [arm64]
+  - build-on: [armhf]
+    build-for: [armhf ]
+    
