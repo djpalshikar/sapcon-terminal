@@ -1,6 +1,6 @@
 #include "serialcomm.h"
-#include"qextserialport.h"
-#include "qextserialenumerator.h"
+//#include"qextserialport.h"
+//#include "qextserialenumerator.h"
 #include<QDebug>
 #include<QDir>
 #include<QString>
