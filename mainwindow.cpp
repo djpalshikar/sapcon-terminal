@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "quary_box.h"
 #include"answer_box.h"
-#include"qextserialport.h"
+//#include"qextserialport.h"
 #include <QScreen>
 #include<QDebug>
 
