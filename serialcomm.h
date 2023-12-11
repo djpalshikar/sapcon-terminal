@@ -7,8 +7,8 @@
 #include<QPushButton>
 #include"answer_box.h"
 #include<QComboBox>
-#include"qextserialport.h"
-#include "qextserialenumerator.h"
+//#include"qextserialport.h"
+//#include "qextserialenumerator.h"
 #include<QPlainTextEdit>
 #include<QTimer>
 #include<QLabel>
@@ -41,7 +41,7 @@ public:
     QCheckBox *append_new_line;
     QList<QString> baudrate_list;
     QList<QString> comports_list;
-    QextSerialPort *port;
+    //QextSerialPort *port;
     QList<QString> profile_list;
     QPlainTextEdit *io_plaintext;
     QTimer *timer; // for usb
