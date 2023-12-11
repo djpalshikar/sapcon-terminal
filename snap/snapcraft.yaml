@@ -18,6 +18,8 @@
       plugin: cmake
       cmake-parameters:
           - -DCMAKE_INSTALL_PREFIX=/usr
+      source-type: git
+      source-branch: master
       source: https://github.com/djpalshikar/sapcon-terminal
   apps:
     sapcon-terminal:
