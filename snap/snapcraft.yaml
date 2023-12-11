@@ -17,6 +17,7 @@
       # See 'snapcraft plugins'
       plugin: cmake
       cmake-parameters:
+          - -DCMAKE_INSTALL_PREFIX=/usr
       source: https://github.com/djpalshikar/sapcon-terminal
   apps:
     sapcon-terminal:
