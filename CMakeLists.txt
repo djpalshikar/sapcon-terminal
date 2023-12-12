@@ -16,7 +16,6 @@ set(CMAKE_CXX_STANDARD 14)
 # reasonable directory (base sourse directory) but generaly to avoid some
 # misconfigurations of generated `Makefile` this option is recommended in
 # Qt projects.
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Tells CMake to run `moc` any time needed.
 # `MOC` is stands for Meta-Object Compiler and is a Qt framework's utility
 # needed to have clean and correct definitions for signals and slots in any
@@ -24,6 +23,11 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # CMake intelligently runs `moc` on just files that used any Qt MOC Macros.
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+
+if(CMAKE_VERSION VERSION_LESS "3.7.0")
+    set(CMAKE_INCLUDE_CURRENT_DIR ON)
+endif()
 
 # Sets a custom variable named `Qt5_BASE_DIR` that we could use further to have
 # a modular import of Qt Framework's Libraries.
@@ -56,6 +60,7 @@ set(SOURCE_FILES
   answer_box.cpp
   quary_box.cpp
   serialcomm.cpp
+  resource.qrc
 )
 #include_directory(${CMAKE_CURRENT_SOURCE_DIR})
 # `find_package` directive tells CMake to search for given package name and
