@@ -17,7 +17,6 @@ set(CMAKE_CXX_STANDARD 14)
 # misconfigurations of generated `Makefile` this option is recommended in
 # Qt projects.
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
 # Tells CMake to run `moc` any time needed.
 # `MOC` is stands for Meta-Object Compiler and is a Qt framework's utility
 # needed to have clean and correct definitions for signals and slots in any
@@ -57,6 +56,7 @@ set(SOURCE_FILES
   quary_box.cpp
   serialcomm.cpp
 )
+qt5_wrap_ui(SOURCES mainwindow.ui)
 #include_directory(${CMAKE_CURRENT_SOURCE_DIR})
 # `find_package` directive tells CMake to search for given package name and
 # applies appropriate configurations for that package.
