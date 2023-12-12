@@ -72,7 +72,7 @@ set(SOURCE_FILES
 # against using `find_package` for each component lets us to avoid worrying
 # about each component's cmakefile path and have all of them configured in just
 # one line.
-find_package(Qt5 REQUIRED COMPONENTS Core Widgets Gui)
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets Gui SerialPort)
 
 # `add_executable` directive tells CMake to create a target in generated `Makefile`
 # that compiles sources given to it and generates an executable named as target
@@ -88,4 +88,4 @@ add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
 # generates a working binary file that linked properly to libraries used.
 # Here, this directive generates needed linker options as `-l<libname>` switchs
 # to tell linker which libraries are used.
-target_link_libraries(${CMAKE_PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Gui)
+target_link_libraries(${CMAKE_PROJECT_NAME} Qt5::Core Qt5::Widgets Qt5::Gui Qt::SerialPort)
