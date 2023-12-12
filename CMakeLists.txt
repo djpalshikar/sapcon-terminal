@@ -89,7 +89,7 @@ find_package(Qt5 REQUIRED COMPONENTS Core Widgets Gui SerialPort)
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
 install(TARGETS ${CMAKE_PROJECT_NAME}
     CONFIGURATIONS Release
-    DESTINATION .
+    BUNDLE DESTINATION .
     RUNTIME DESTINATION /usr)
 
 # Finally we need to tell CMake how to configure linker (here, `ld`).
