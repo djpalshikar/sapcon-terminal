@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,7 +25,6 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
- include(qextserialport-1.2beta2/src/qextserialport.pri)
 
 RESOURCES += \
     #../../terminal/resourse.qrc

@@ -1,6 +1,8 @@
 #include "serialcomm.h"
 //#include"qextserialport.h"
 //#include "qextserialenumerator.h"
+#include<QtSerialPort/QSerialPortInfo>
+#include<QtSerialPort/QSerialPort>
 #include<QDebug>
 #include<QDir>
 #include<QString>
@@ -291,14 +293,13 @@ void serialComm::set_font(int x)
 {
 
     delete baudrate;
-    delete getportname;
     delete comports;
+    delete port;
     delete profiles;
     delete connect_button;
     delete refresh_button;
     delete time_stamp;
     delete append_new_line;
-    delete port;
     delete timer;
     delete log_checkbox;
     delete log_time_lineedit;
@@ -317,22 +318,20 @@ void serialComm::timeoutfunction(){
     QString str1 =  comports->currentText();
     str1.truncate(6);
     qDebug()<<str1;
-
-    portnumber = getportname->getPorts();
-
+    portnumber = QSerialPortInfo::availablePorts();
     long time = log_time_lineedit->text().toLong();
     if(time!=0) timer->start(time);
 
-    for(int i=0;i<portnumber.count();i++)
+    for(int i=0;i< portnumber.size();i++)
     {
-       if(comports->currentText() == portnumber.at(portnumber.count()-i-1).portName)
+    if(comports->currentText() == portnumber.at(portnumber.size()-i-1).portName())
        {
            return;
        }
     }
-    for(int i=0;i<portnumber.count();i++)
+    for(int i=0;i<portnumber.size();i++)
     {
-       QString str2 = portnumber.at(portnumber.count()-i-1).portName;
+       QString str2 = portnumber.at(portnumber.size()-i-1).portName();
        str2.truncate(6);
        qDebug()<<str2;
 
@@ -401,20 +400,20 @@ void serialComm::set_comports_on_combobox()
     disconnect(comports,SIGNAL(currentIndexChanged(int)),this,SLOT(set_connection(int)));
     QString str1 =comports->currentText();
     str1.truncate(6);
-    portnumber = getportname->getPorts();
+    portnumber = QSerialPortInfo::availablePorts();
     comports->clear();
-    for(int i=0;i<portnumber.count();i++)
+    for(int i=0;i<portnumber.size();i++)
     {
-        QString str2 = portnumber.at(portnumber.count()-i-1).portName;
+        QString str2 = portnumber.at(portnumber.size()-i-1).portName();
         str2.truncate(6);
         if(str1==str2) temp = i;
         bool realPort = false;
         #ifdef Q_OS_LINUX
-        if (QString(portnumber.at(portnumber.count()-i-1).portName).startsWith("ttyUSB"))
+        if (QString(portnumber.at(portnumber.size()-i-1).portName()).startsWith("ttyUSB"))
                 realPort = true;
         #endif
         if (realPort)
-            comports->addItem(portnumber.at(portnumber.count()-i-1).portName);
+                comports->addItem(portnumber.at(portnumber.size()-i-1).portName());
     }
 comports->setCurrentIndex(temp);
  connect(comports,SIGNAL(currentIndexChanged(int)),this,SLOT(set_connection(int)));
@@ -427,18 +426,18 @@ void serialComm::set_connection(int x)
 {
   QString old_port;
   if(port!=NULL)delete port;
-  port = new QextSerialPort(comports->currentText());
+  port = new QSerialPort(comports->currentText());
   qDebug()<<comports->currentText();
   x= port->open(QIODevice::ReadWrite);
    if(!x) {
         ser_connected = false;
         connect_button->setText("&Connect");QMessageBox::warning(this,"Warning","Port is not open\n please try again");
         return;}
-  port->setBaudRate(BaudRateType(baudrate->currentText().toLong()));
-  port->setFlowControl(FLOW_OFF);
-  port->setStopBits(STOP_1);
-  port->setDataBits(DATA_8);
-  port->setParity(PAR_NONE);
+  port->setBaudRate(baudrate->currentText().toLong());
+  port->setFlowControl(QSerialPort::NoFlowControl);
+  port->setStopBits(QSerialPort::OneStop);
+  port->setDataBits(QSerialPort::Data8);
+  port->setParity(QSerialPort::NoParity);
   connect(port,SIGNAL(readyRead()),this,SLOT(responceFromInstruments()));
   old_port = comports->currentText();
   ser_connected = true;

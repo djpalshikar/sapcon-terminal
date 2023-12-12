@@ -7,8 +7,8 @@
 #include<QPushButton>
 #include"answer_box.h"
 #include<QComboBox>
-//#include"qextserialport.h"
-//#include "qextserialenumerator.h"
+#include<QtSerialPort/QSerialPort>
+#include<QtSerialPort/QSerialPortInfo>
 #include<QPlainTextEdit>
 #include<QTimer>
 #include<QLabel>
@@ -28,8 +28,8 @@ class serialComm : public QWidget
 public:
     
     explicit serialComm(QGridLayout *layout,QWidget *parent = 0);
-    QList<QextPortInfo> portnumber;
-    QextSerialEnumerator *getportname;
+    QSerialPort *port;
+    QList<QSerialPortInfo> portnumber;
     QComboBox *baudrate;
     QComboBox *comports;
     QComboBox *profiles;
