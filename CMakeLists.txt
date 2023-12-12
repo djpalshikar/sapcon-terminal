@@ -87,7 +87,7 @@ find_package(Qt5 REQUIRED COMPONENTS Core Widgets Gui SerialPort)
 # compilation of a library. (librarie's compilations are differ in directives and
 # options that must be passed to compiler from an executable's compilations)
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
-
+install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX})
 # Finally we need to tell CMake how to configure linker (here, `ld`).
 # Linker needs to know which libraries are used to find address of symbols and
 # generates a working binary file that linked properly to libraries used.
