@@ -31,26 +31,26 @@ endif()
 
 # Sets a custom variable named `Qt5_BASE_DIR` that we could use further to have
 # a modular import of Qt Framework's Libraries.
-set(Qt5_SYSTEMWIDE /opt/Qt5.8.0/5.8/gcc_64)
-set(Qt5_LOCAL $ENV{HOME}/Qt5.8.0/5.8/gcc_64)
-message("Testing against Qt")
-if(EXISTS ${Qt5_SYSTEMWIDE})
-    message("System-wide Qt found!")
-    set(Qt5_BASE_DIR ${Qt5_SYSTEMWIDE})
-elseif(EXISTS ${Qt5_LOCAL})
-    message("Local Qt found!")
-    set(Qt5_BASE_DIR ${Qt5_LOCAL})
-else()
-    message("No user installed Qt5 found!")
-endif()
+#set(Qt5_SYSTEMWIDE /opt/Qt5.8.0/5.8/gcc_64)
+#set(Qt5_LOCAL $ENV{HOME}/Qt5.8.0/5.8/gcc_64)
+#message("Testing against Qt")
+#if(EXISTS ${Qt5_SYSTEMWIDE})
+#    message("System-wide Qt found!")
+#    set(Qt5_BASE_DIR ${Qt5_SYSTEMWIDE})
+#elseif(EXISTS ${Qt5_LOCAL})
+#    message("Local Qt found!")
+#    set(Qt5_BASE_DIR ${Qt5_LOCAL})
+#else()
+#    message("No user installed Qt5 found!")
+#endif()
 
-# This variable tells CMake to create appropriate library path, binary path and
-# packages path to find and configure anything that told CMake to use (e.g.
-# `find_package` or `find_library` directives)
-if(DEFINED Qt5_BASE_DIR)
-    message("Adjust CMAKE_PREFIX_PATH")
-    set(CMAKE_PREFIX_PATH ${Qt5_BASE_DIR};${CMAKE_PREFIX_PATH})
-endif()
+## This variable tells CMake to create appropriate library path, binary path and
+## packages path to find and configure anything that told CMake to use (e.g.
+## `find_package` or `find_library` directives)
+#if(DEFINED Qt5_BASE_DIR)
+#    message("Adjust CMAKE_PREFIX_PATH")
+#    set(CMAKE_PREFIX_PATH ${Qt5_BASE_DIR};${CMAKE_PREFIX_PATH})
+#endif()
 
 # This variable is used to avoid repeating names of source file everywhere we
 # need them.
