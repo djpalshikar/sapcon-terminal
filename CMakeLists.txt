@@ -90,7 +90,7 @@ add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
 install(TARGETS ${CMAKE_PROJECT_NAME}
     CONFIGURATIONS Release
     DESTINATION .
-    RUNTIME DESTINATION Release/bin)
+    RUNTIME DESTINATION /usr)
 
 # Finally we need to tell CMake how to configure linker (here, `ld`).
 # Linker needs to know which libraries are used to find address of symbols and
