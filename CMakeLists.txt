@@ -23,6 +23,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Qt class/object.
 # CMake intelligently runs `moc` on just files that used any Qt MOC Macros.
 set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
 
 # Sets a custom variable named `Qt5_BASE_DIR` that we could use further to have
 # a modular import of Qt Framework's Libraries.
