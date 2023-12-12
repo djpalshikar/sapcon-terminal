@@ -88,8 +88,9 @@ find_package(Qt5 REQUIRED COMPONENTS Core Widgets Gui SerialPort)
 # options that must be passed to compiler from an executable's compilations)
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
 install(TARGETS ${CMAKE_PROJECT_NAME}
+    CONFIGURATIONS Release
     DESTINATION .
-    RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})
+    RUNTIME DESTINATION Release/bin)
 
 # Finally we need to tell CMake how to configure linker (here, `ld`).
 # Linker needs to know which libraries are used to find address of symbols and
