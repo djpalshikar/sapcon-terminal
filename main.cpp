@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include <QApplication>
 
-#define APP_NAME "Sapcon Terminal"
+#define APP_NAME "sapcon-terminal"
 
 int main(int argc, char *argv[])
 {

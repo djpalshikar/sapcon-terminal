@@ -14,14 +14,20 @@
   
   apps:
     sapcon-terminal:
+      command: build/sapcon-terminal/parts/sapcon-terminal/install/usr/sapcon-terminal
       extensions:
         - kde-neon
-      command: build/sapcon-terminal/parts/sapcon-terminal/install/usr/sapcon-terminal
-  architectures: [amd64, arm64, armhf]
+      plugs:
+        - raw-usb
+        - home
+        - uhid
+        - hardware-observe
+  #architectures: [amd64, arm64, armhf]
 
   parts:
     sapcon-terminal:
       # See 'snapcraft plugins'
+
       plugin: cmake
       cmake-parameters:
           - "-DKDE_INSTALL_USE_QT_SYS_PATHS=ON"
@@ -29,6 +35,7 @@
           - "-DCMAKE_BUILD_TYPE=Release"
           - "-DENABLE_TESTING=OFF"
           - "-DBUILD_TESTING=OFF"
+
     
       source-type: git
       source-branch: master
