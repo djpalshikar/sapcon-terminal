@@ -14,7 +14,7 @@
   
   apps:
     sapcon-terminal:
-      command: build/sapcon-terminal/parts/sapcon-terminal/install/usr/sapcon-terminal
+      command: usr/sapcon-terminal
       extensions:
         - kde-neon
       plugs:
@@ -22,7 +22,7 @@
         - home
         - uhid
         - hardware-observe
-  #architectures: [amd64, arm64, armhf]
+   #architectures: [amd64, arm64, armhf]
 
   parts:
     sapcon-terminal:
